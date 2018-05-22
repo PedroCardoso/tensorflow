@@ -390,7 +390,8 @@ def embedding_lookup_sparse(params,
     ValueError: If `combiner` is not one of {"mean", "sqrtn", "sum"}.
   """
   if combiner is None:
-    combiner = "sqrtn"
+    #TODO: investigate changing default to sqrt
+    combiner = "mean"
   if combiner not in ("mean", "sqrtn", "sum"):
     raise ValueError("combiner must be one of 'mean', 'sqrtn' or 'sum'")
   if isinstance(params, variables.PartitionedVariable):
